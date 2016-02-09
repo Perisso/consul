@@ -65,6 +65,7 @@ end
   end
   if level == 3 then
     user.update(verified_at: Time.now, document_number: Faker::Number.number(10) )
+    VerifiedUser.create!(document_number: user.document_number, document_type: user.document_type, phone: user.phone_number , email: user.email)
   end
 end
 

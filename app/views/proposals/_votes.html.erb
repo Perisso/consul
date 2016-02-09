@@ -21,16 +21,17 @@
       <div class="supported">
         <%= t("proposals.proposal.already_supported") %>
       </div>
+      <%= link_to vote_proposal_path(proposal, value: 'no'), class: "button button-support tiny radius expand", title: t('proposals.proposal.no_support_title'), method: "post", remote: true do %>
+      <%= t("proposals.proposal.no_support") %>
+      <% end %>
     <% else %>
-      <%= link_to vote_url,
-          class: "button button-support tiny radius expand",
-          title: t('proposals.proposal.support_title'), method: "post", remote: true do %>
-        <%= t("proposals.proposal.support") %>
+       <%= link_to vote_proposal_path(proposal, value: 'yes'), class: "button button-support tiny radius expand", title: t('proposals.proposal.support_title'), method: "post", remote: true do %>
+      <%= t("proposals.proposal.support") %>
       <% end %>
     <% end %>
-  </div>
 
-  <% if user_signed_in? && current_user.organization? %>
+  </div>
+ <% if user_signed_in? && current_user.organization? %>
   <div class="organizations-votes" style='display:none'>
     <p>
       <%= t("votes.organizations") %>

@@ -309,6 +309,8 @@ es:
       proposal: Propuesta
       reason_for_supports_necessary: 2% del Censo
       support: Apoyar
+      no_support: Dejar de apoyar
+      no_support_title: Dejar de apoyar esta propuesta
       support_title: Apoyar esta propuesta
       supports:
         one: 1 apoyo
