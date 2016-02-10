@@ -9,6 +9,7 @@ es:
         spending_proposal: "Propuesta de gasto creada correctamente."
       save_changes:
         notice: Cambios guardados
+        nonotice: Cambios no guardados
       update:
         notice: "%{resource_name} actualizado correctamente."
         debate: "Debate actualizado correctamente."

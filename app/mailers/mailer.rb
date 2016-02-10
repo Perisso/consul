@@ -15,6 +15,9 @@ class Mailer < ApplicationMailer
     @reply = reply
     @commentable = @reply.commentable
     parent = Comment.find(@reply.parent_id)
+    @user = User.find(parent.user_id)
+    @plain_token,@encrypted_token= Devise.token_generator.generate(User, :email_verification_token)
+    @user.update(email_verification_token: @plain_token)
     @recipient = parent.author
     with_user(@recipient) do
       mail(to: @recipient.email, subject: t('mailers.reply.subject')) if @commentable.present? && @recipient.present?

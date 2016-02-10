@@ -27,6 +27,8 @@ es:
       username_label: Nombre de usuario
       verified_account: Cuenta verificada
       verify_my_account: Verificar mi cuenta
+    comment:
+      unsubscribe: Pincha aqui  
   application:
     close: Cerrar
     menu: Menú

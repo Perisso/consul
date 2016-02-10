@@ -79,6 +79,9 @@ Rails.application.routes.draw do
 
   resource :account, controller: "account", only: [:show, :update, :delete] do
     collection { get :erase }
+    collection do
+      get :unsubscribe
+    end
   end
 
   resources :notifications, only: [:index, :show] do

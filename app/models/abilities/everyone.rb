@@ -10,6 +10,7 @@ module Abilities
       can :read, Legislation
       can :read, User
       can [:search, :read], Annotation
+      can :unsubscribe, User
     end
   end
 end
