@@ -1,7 +1,5 @@
-require 'open-uri'
-class SMSApi
-  attr_accessor :client
-
+class SmsApi
+ 
   def initialize
     @client = Savon.client(wsdl: url)
   end
@@ -17,9 +15,11 @@ class SMSApi
 
   def sms_deliver(phone, code)
     return stubbed_response unless end_point_available?
-
-    response = client.call(:enviar_sms_simples, message: request(phone, code))
-    success?(response)
+    veces=1
+    do 
+      response = client.call(:enviar_sms_simples, message: request(phone, code))
+      veces ++
+    until (response.respuestaSE.codigoRespuesta==0 || veces>5)
   end
 
   def request(phone, code)
@@ -34,7 +34,7 @@ class SMSApi
   end
 
   def end_point_available?
-    Rails.env.staging? || Rails.env.preproduction? || Rails.env.production?
+    Rails.env.staging? || Rails.env.preproduction? || Rails.env.production?  || Rails.env.test?
   end
 
   def stubbed_response

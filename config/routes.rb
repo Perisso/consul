@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+  get 'banners/index'
+  end
+
   devise_for :users, controllers: {
                        registrations: 'users/registrations',
                        sessions: 'users/sessions',
@@ -156,6 +160,9 @@ Rails.application.routes.draw do
 
     resource :activity, controller: :activity, only: :show
     resource :stats, only: :show
+    resources :banners, only: [:index, :create, :update, :destroy]
+    
+
 
     namespace :api do
       resource :stats, only: :show

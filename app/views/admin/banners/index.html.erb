@@ -1,0 +1,22 @@
+<h2><%= t("admin.tags.index.add_tag") %></h2>
+
+
+
+<ul class="admin-list">
+<% @banners.each do |banner| %>
+  <li>
+    <%= link_to banner.text, edit_admin_banner_path(banner) %>
+    <span class="bullet">&nbsp;&bull;&nbsp;</span>
+    <span class="level"><%= t("admin.officials.level_#{official.official_level}") %></span>
+    <span class="bullet">&nbsp;&bull;&nbsp;</span>
+    <span class="label round level-<%= official.official_level %>">
+      <%= banner.text %>
+    </span>
+
+    
+  </li>
+<% end %>
+</ul>
+
+
+

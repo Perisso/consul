@@ -12,4 +12,9 @@ describe Verification::Sms do
     expect(sms).to_not be_valid
   end
 
+  it "should validate uniqness of phone" do
+    user = create(:user, confirmed_phone: "699999999")
+    sms = Verification::Sms.new(phone: "699999999")
+    expect(sms).to_not be_valid
+  end
 end

@@ -98,5 +98,14 @@
         <%= t("admin.menu.stats") %>
       <% end %>
     </li>
+
+
+
+    <li <%= "class=active" if controller_name == "banners" %>>
+      <%= link_to admin_banners_path do %>
+        <i class="icon-banners"></i>
+        <%= t("admin.menu.banners") %>
+      <% end %>
+    </li>
   </ul>
 </nav>
